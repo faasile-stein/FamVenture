@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  # Supabase local development is handled by Supabase CLI
+  # This docker-compose is for additional services if needed
+
+  # Example: Add a reverse proxy, monitoring, etc.
+
+  # For now, use: supabase start
+  # This file is here for future extensibility
+
+  # You can add services like:
+  # - Redis for caching
+  # - Additional microservices
+  # - Monitoring tools
+
+  # Example service (commented out):
+  # redis:
+  #   image: redis:7-alpine
+  #   ports:
+  #     - "6379:6379"
+  #   volumes:
+  #     - redis-data:/data
+
+volumes:
+  redis-data:
