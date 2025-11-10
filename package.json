@@ -8,7 +8,21 @@
     "ios": "expo start --ios",
     "web": "expo start --web",
     "lint": "eslint .",
-    "type-check": "tsc --noEmit"
+    "type-check": "tsc --noEmit",
+    "dev": "bash scripts/dev.sh",
+    "dev:start": "bash scripts/start.sh",
+    "dev:stop": "bash scripts/stop.sh",
+    "supabase:start": "supabase start",
+    "supabase:stop": "supabase stop",
+    "supabase:status": "supabase status",
+    "supabase:reset": "supabase db reset",
+    "supabase:studio": "open http://localhost:54323",
+    "build:ios": "eas build --platform ios",
+    "build:android": "eas build --platform android",
+    "build:all": "eas build --platform all",
+    "submit:ios": "eas submit --platform ios",
+    "submit:android": "eas submit --platform android",
+    "postinstall": "chmod +x scripts/*.sh"
   },
   "dependencies": {
     "@expo/vector-icons": "^14.0.0",
