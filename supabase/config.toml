@@ -1,0 +1,50 @@
+# Supabase Configuration for FamVenture
+
+project_id = "famventure"
+
+[api]
+enabled = true
+port = 54321
+schemas = ["public", "storage"]
+extra_search_path = ["public"]
+max_rows = 1000
+
+[db]
+port = 54322
+major_version = 15
+
+[studio]
+enabled = true
+port = 54323
+
+[auth]
+enabled = true
+site_url = "http://localhost:8081"
+additional_redirect_urls = ["exp://localhost:8081"]
+jwt_expiry = 3600
+enable_signup = true
+
+[auth.external.apple]
+enabled = false
+
+[auth.external.google]
+enabled = false
+
+[storage]
+enabled = true
+file_size_limit = "50MiB"
+
+[functions]
+enabled = true
+
+[functions."approve-chore"]
+verify_jwt = true
+
+[functions."update-leaderboard"]
+verify_jwt = false
+
+[functions."process-recurring-chores"]
+verify_jwt = false
+
+[functions."check-time-estimate"]
+verify_jwt = true
