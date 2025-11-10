@@ -198,31 +198,57 @@ psql -h localhost -p 54322 -d postgres -U postgres -f supabase/seed.sql
 
 ---
 
-## 🚢 Deployment
 
-### Automated (CI/CD)
+## 🚢 Build & Publish
 
-Push to `main` or `develop` triggers automatic builds via GitHub Actions.
-
-**Setup:**
-1. Add GitHub Secrets (see [CICD_SETUP.md](.github/CICD_SETUP.md))
-2. Configure EAS: `eas build:configure`
-3. Push to trigger build
-
-### Manual
+### Quick Setup (3 steps)
 
 ```bash
-# Preview build
-eas build --profile preview --platform all
+# 1. Set up EAS for building
+npm run setup:eas
 
-# Production build
-eas build --profile production --platform all
+# 2. Add EXPO_TOKEN to GitHub Secrets
+# (token shown after step 1)
 
-# Submit to stores
-eas submit --platform ios
-eas submit --platform android
+# 3. Push to trigger automatic build
+git push origin main
 ```
 
+**That's it!** Builds will automatically create and deploy.
+
+### Build Locally
+
+```bash
+# Preview build (testing)
+npm run build:preview
+
+# Production build (store release)
+npm run build:production
+```
+
+### Submit to Stores
+
+```bash
+# Automatic (via GitHub Actions)
+git push origin main
+
+# Manual
+npm run submit:ios         # iOS App Store
+npm run submit:android     # Google Play
+npm run submit:all         # Both stores
+```
+
+### Complete Guide
+
+See **[BUILD_AND_PUBLISH.md](./BUILD_AND_PUBLISH.md)** for:
+- Detailed EAS setup
+- GitHub Secrets configuration
+- Apple & Google Play setup
+- Testing & monitoring
+- Troubleshooting
+- Release workflow
+
+---
 ---
 
 ## 📊 Project Status
