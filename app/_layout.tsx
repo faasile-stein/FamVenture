@@ -2,6 +2,7 @@
 import { Slot, useRouter, useSegments } from 'expo-router'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { AuthProvider } from '@/providers/AuthProvider'
+import { ThemeProvider } from '@/theme'
 import { useAuthStore } from '@/store/useAuthStore'
 import { useEffect } from 'react'
 import { ActivityIndicator, View } from 'react-native'
@@ -41,9 +42,11 @@ function RootLayoutNav() {
 export default function RootLayout() {
   return (
     <QueryClientProvider client={queryClient}>
-      <AuthProvider>
-        <RootLayoutNav />
-      </AuthProvider>
+      <ThemeProvider>
+        <AuthProvider>
+          <RootLayoutNav />
+        </AuthProvider>
+      </ThemeProvider>
     </QueryClientProvider>
   )
 }
